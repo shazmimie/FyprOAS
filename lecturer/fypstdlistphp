@@ -1,0 +1,17 @@
+<?php include '../header.php';
+
+$a = $_SESSION['U_id'];?>
+
+ <?php CheckRole('Lecturer') ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+
+
+
+ <?php include '../footer.php'; ?>
+</html>
+ </head>
