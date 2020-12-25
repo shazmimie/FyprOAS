@@ -10,21 +10,21 @@ $a = $_SESSION['U_id'];?>
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="../style.css">
 <div class="main">
-   
-   <body><br><br>
+   <br><br><center>
+  <h2>Lecturer List:</h2><br><br><br><br>
+
+ <center>
+   <body>
    	<tr>
 <th colspan="9">
 <form action="" method="post">
 <input type="text" name="search">
 <input type="submit" name="submit" value="search">
 </form>
-</th><tr>
-<center>
- 	<h2>Lecturer List:</h2><br><br><br><br>
+</th></tr>
 
- 
 
-<table border="0" align="center">
+<table border="1" align="center">
 <tr>
 	<th>No</th>
 	<th>Lecturer Name</th>
@@ -60,10 +60,11 @@ $L_department = $row['L_department'];
 $L_status = $row['L_status'];
 
 ?>
-<table>
+
 <form action="lecturerlist.php?L_id=<?php echo $L_id;?>" method="post">
 <tr>
-<tr>
+  <tr>
+
 
 <td><?php echo $L_count;?></td>
 <td><?php echo $L_name;?></td>
@@ -93,12 +94,10 @@ if($L_status =='Not Available'){
 </tr>
 
 
-
-  </form>
-  </table>    
-</table>
+</form>
 
 
+ 
        
 
      <?php }?>
@@ -119,7 +118,7 @@ $run_update = mysqli_query($link, $update);
 
 if($run_update)
 {
-  echo "<script>alert('Record Update Successfully')</script>";
+  echo "Lecturer Status Update Successfully";
   echo "<script>window.open('lecturerlist.php','_self')</script>";
 }
 else
@@ -130,8 +129,13 @@ else
 ?>
 	
 
+   
 
+  </table> 
+   </center></center>
 </div>
+
+
 <?php include '../sidebar.php' ;?>
  <?php include '../footer.php'; ?>
 </html>

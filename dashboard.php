@@ -21,7 +21,7 @@
 <?php if (IsInRole('Student')) { ?>
 <button class="button button3" formaction="student/studentProfile.php"><a href="student/studentProfile.php"><h4>PROFILE</h4><br><img src="https://www.nicepng.com/png/full/438-4388230_profile-user-update-profile-icon-png.png" width="300" height="150"></a></button>
 
-<button class="button button3"formaction="requests/hahaha.php"><a href="requests/hahaha.php"><h4>SV AND TITLE APPLICATION</h4><br><img src="https://image.flaticon.com/icons/svg/1243/1243557.svg" width="300" height="150"></a></button>
+<button class="button button3"formaction="requests/SvandTitleApplication.php"><a href="requests/SvandTitleApplication.php"><h4>SV AND TITLE APPLICATION</h4><br><img src="https://image.flaticon.com/icons/svg/1243/1243557.svg" width="300" height="150"></a></button>
 <?php }?>
 
 <?php if (IsInRole('Lecturer')) { ?>

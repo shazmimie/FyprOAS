@@ -1,5 +1,5 @@
 <?php include '../header.php';
-
+ include("function.php");
 $a = $_SESSION['U_id'];?>
 
  <?php CheckRole('Coordinator') ?>
@@ -16,58 +16,126 @@ $a = $_SESSION['U_id'];?>
 <h2>Allocation:</h2><br><br><br><br>
     <center>
 
-<table border="0" align="center">
+<table border="1" align="center">
 <tr>
+  <th> No</th>
+    <th>View</th>
    <th> Lecturer ID</th>
   <th> Lecturer Name</th>
-  <th>Student Name</th>
-  <th>Student ID</th>
-  <th> Category</th>
+    <th> PTA1</th>
+      <th> PTA2</th>
+        <th> FYP1</th>
+          <th> FYP2</th>
+  <th>Total Student Supervised</th>
+  
+  
   
   
 
   
 </tr>
 
-  <?php
-   //SQL query
-//$query= "SELECT person_unique_id, person_name, group_concat( mile_running_time ) AS miles, group_concat( bench_press_weight_lbs ) AS bench, group_concat( squat_weight_lbs ) AS squat FROM exercise_result GROUP BY person_unique_id;";
-  $link = mysqli_connect("localhost","root","","fyp");
-     $query = " SELECT application.L_id, application.L_name AS L_name,  student.U_name AS U_name, student.U_id AS U_id, student.S_category AS S_category  FROM application LEFT JOIN student ON student.U_id = application.U_id   order by L_id ASC  ;"  or die(mysqli_connect_error());
-    $result = mysqli_query($link, $query);
+<?php
 
-    
+
+//$query = "SELECT lecturer.L_count, lecturer.L_id, lecturer.L_name, application.S_category FROM lecturer LEFT JOIN application ON lecturer.L_id.application.L_id ; " or die(mysqli_connect_error());
+
+$query = "SELECT * FROM lecturer where L_status='Available' ";
+//$result = mysqli_query($link, $query);
 
 
     //Loop the recordset $rs
   
-while ( $row = $result -> fetch_assoc()) {
-  $L_id= $row['L_id'];
+
+    //while ( $row = $result -> fetch_assoc()) {
+        if(count(fetchAll($query))>0){
+                    foreach(fetchAll($query) as $row){
+                     
+$L_count= $row['L_count'];
 $L_name= $row['L_name'];
-$U_name = $row['U_name'];
-$U_id = $row['U_id'];
-      
-      
-      ?>
+$L_id = $row['L_id'];
+
+
+
     
-         <tr>
+?>
+<tr>
+
+   <td><p class="lead text-muted"><?php echo $row['L_count'] ?></p></td>
+   <p>
+                          <td><a href="allo.php?L_id=<?php echo $row['L_id'] ?>" class="btn btn-secondary my-2">View</a>
+
+
+
+                          </td>
+                       
+                      </p>
                      <td><p class="lead text-muted"><?php echo $row['L_id'] ?></p></td>
                      <td><p class="lead text-muted"><?php echo $row['L_name'] ?></p></td>
-                        <td><p class="lead text-muted"><?php echo $row['U_name'] ?></p></td>
-                         <td><p class="lead text-muted"><?php echo $row['U_id'] ?></p></td>
-                      <td><p class="lead text-muted"><?php echo $row['S_category'] ?></p></td>
-                      
-                     
-                     
-                    </tr>
-     
-  <?php
+                        <td><p class="lead text-muted"><?php  
+    $query = "SELECT S_category,  COUNT(U_id) FROM application where S_category='PTA1' AND L_id='$L_id'";
+   
+    if(count(fetchAll($query))>0){
+                    foreach(fetchAll($query) as $row){
 
+      echo  $row['COUNT(U_id)'] ;
+    }
   }
-?>
-</table>
-</center>
-  </div>
+?></p></td>
+                         <td><p class="lead text-muted"><?php 
+   $query = "SELECT S_category,  COUNT(U_id) FROM application where S_category='PTA2' AND L_id='$L_id'";
+   
+    if(count(fetchAll($query))>0){
+                    foreach(fetchAll($query) as $row){
+
+      echo  $row['COUNT(U_id)'] ;
+    }
+  }
+?></p></td>
+                      <td><p class="lead text-muted"><?php  
+    $query = "SELECT S_category,  COUNT(U_id) FROM application where S_category='FYP1' AND L_id='$L_id'";
+   
+    if(count(fetchAll($query))>0){
+                    foreach(fetchAll($query) as $row){
+
+      echo  $row['COUNT(U_id)'] ;
+    }
+  }
+?></p></td>
+                       <td><p class="lead text-muted"><?php 
+    $query = "SELECT S_category,  COUNT(U_id) FROM application where S_category='FYP2' AND L_id='$L_id'";
+   
+    if(count(fetchAll($query))>0){
+                    foreach(fetchAll($query) as $row){
+
+      echo  $row['COUNT(U_id)'] ;
+    }
+  }
+?></p></td>
+                       <td><p class="lead text-muted"><?php 
+  $query = "SELECT S_category,  COUNT(U_id) FROM application where L_id='$L_id'";
+   
+    if(count(fetchAll($query))>0){
+                    foreach(fetchAll($query) as $row){
+
+      echo  $row['COUNT(U_id)'] ;
+    }
+  }
+ 
+?></p></td>
+                     
+                      
+ <?php
+
+
+                 }   
+                }
+
+  ?>
+
+
+                    </tr></table></center></center></div>
+
 
 
 

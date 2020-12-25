@@ -16,10 +16,10 @@ $a = $_SESSION['U_id'];?>
 <h2>Report:</h2><br><br><br><br>
   	<center>
 
-<table border="0" align="center">
+<table border="1" align="center">
 <tr>
  
-	<th >Lecturer name</th>
+	<th >Lecturer Name</th>
 	<th>Student Name</th>
 	<th>Student ID</th>
 	<th> Category</th>
@@ -32,7 +32,7 @@ $a = $_SESSION['U_id'];?>
   <?php
    //SQL query
 
-     $query = " SELECT DISTINCT  student.U_name, student.U_id, student.S_category , application.L_name  FROM student LEFT JOIN application ON student.U_id = application.U_id LEFT JOIN lecturer ON application.A_idsvnumber=lecturer.A_idsvnumber ORDER BY application.L_name    ;"  or die(mysqli_connect_error());
+     $query = " SELECT application.L_id, application.L_name, GROUP_CONCAT(DISTINCT application.U_id separator '<br><br>') AS 'U_id', GROUP_CONCAT(DISTINCT student.U_name separator '<br><br>')as 'U_name' , GROUP_CONCAT(application.S_category separator '<br><br>') AS 'S_category' FROM application INNER JOIN student ON application.U_id=student.U_id GROUP BY application.L_id ASC  ;"  or die(mysqli_connect_error());
     $result = mysqli_query($link, $query);
 
     

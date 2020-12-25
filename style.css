@@ -54,6 +54,7 @@ form, .content {
 }
 
 
+
 body{
   background:   #FFF5EE;
 }
@@ -340,4 +341,9 @@ button {text-align: center;}
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+  #exp1{
+ background-image: url("UMP.jpg");
+
+
 }

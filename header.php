@@ -35,12 +35,12 @@
     </a>
     
           <div class="dropdown-divider"></div>
-           
+         
                 <a href="../index.php">Home</a>
-                <a formaction="studentProfile.php"><a href="studentProfile.php">Profile</a>
+               <a href="/<?php echo ROOT?>/student/studentProfile.php">Profile</a>
                 <a formaction="requests/SvandTitleApplication.php"><a href="requests/SvandTitleApplication.php">SV and Title Application</a>
                 <a formaction="Notification.php"><a href="Notification.php">Notification</a>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                <a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logoutModal">Logout</a>
 
   
      
@@ -58,9 +58,9 @@
             
             <a href="../index.php">Home</a>
                 <a formaction="lecturerProfile.php"><a href="lecturerProfile.php">Profile</a>
-                <a formaction="approvestudent.php"><a href="approvestudent.php">Student Approval</a>
+                <a formaction="Lapprove.php"><a href="Lapprove.php">Student Approval</a>
                 <a formaction="fypstdlist.php"><a href="fypstdlist.php">FYP Student</a>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                <a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logoutModal">Logout</a>
 
   
      
@@ -78,9 +78,9 @@
                 <a href="../index.php">Home</a>
                 <a formaction="coordinatorProfile.php"><a href="coordinatorProfile.php">Profile</a>
                 <a formaction="report.php"><a href="report.php">Report</a>
-                <a formaction="approvestudent.php"><a href="approvestudent.php">Student Approval</a>
+                <a formaction="Capprove.php"><a href="Capprove.php">Student Approval</a>
                 <a formaction="allocation.php"><a href="allocation.php">Student-Lecturer Allocation</a>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                <a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logoutModal">Logout</a>
   
   
      

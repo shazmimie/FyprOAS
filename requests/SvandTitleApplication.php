@@ -12,9 +12,15 @@ $a = $_SESSION['U_id'];?>
 <?php
 $mysqli = NEW MySQLi ('localhost','root','','fyp');
 
-$resultSet = $mysqli -> query ("SELECT * FROM lecturer ");
-
+$resultSet = $mysqli -> query ("SELECT * FROM lecturer where L_status='Available' ");
+//$result = $mysqli->query($resultSet);
+    //if($result){
+        //$row = mysqli_fetch_assoc($result);
+        //$L_id = $row['L_id'];
+        //$L_name = $row['L_name'];
+//}
 ?>
+
 
     <br><br><br><br><br>
     <center><h1><b><font size = "6"> SV and Title Application</font></b></h1></center>
@@ -23,33 +29,47 @@ $resultSet = $mysqli -> query ("SELECT * FROM lecturer ");
         <br>
         <br><br><br>
         <center>
-        
+
+ 
         
       <br><br><br><br><br><div id="">
 <table>
-                <form method="post" action="hahaha.php">
+                <form  method="post" action="SvandTitleApplication.php" >
             
                 
                     <tr><td>FYP SUPERVISOR  :</td>
-                    <td><select name =" lecturer">
+                    <td><select id =" L_id" name="L_id">
                <?php
 
-                while ( $rows = $resultSet -> fetch_assoc())
+                while ( $row = $resultSet -> fetch_assoc())
+  //$A_idsvnumber = $_GET ['A_idsvnumber'];
+ //$Lname = $_GET ['L_name'];
+
     {
-        $idsvnumber = $_rows ['A_idsvnumber'];
-        $Lname = $_rows ['L_name'];
-     
-        //echo "<option value='$Lname'>$Lname </option>";
-       echo '<option value="'.$rows['A_idsvnumber'].'">'.$rows['L_name'].' 
-       </option>';
+           $L_id = $_row ['L_id'];
+           $L_name = $_row ['L_name'];
+   echo '<option value="' . $row['L_id']. '">' . $row['L_name'] . '</option>';
+        //echo "<option value = '{$row['U_id']}'"; 
+        //if ($A_idsvnumber == $row ['A_idsvnumber'])
+           
+      //echo "selected = 'selected'";
+       //echo ">{$row['L_name']}</option>";
        
-   if($idsvnumber ==$Lname['A_idsvnumber'])
-  echo "selected = 'selected'";
+
+
+       
+
+       
+     
+        //echo "<option value='$L_name'>$L_name </option>";
+       //echo '<option value="'.$row['U_id'].'">'.$row['L_name'].' </option>';
+       //echo "<option value=$row[U_id]>$row[L_name]</option>"; 
+ 
 
  }
- echo "</select>";
+ //echo "</select>";
 ?>
-</td></tr>
+</select></td></tr>
 
                     <tr>
                     <td>TITLE  :</td>
@@ -89,21 +109,26 @@ $resultSet = $mysqli -> query ("SELECT * FROM lecturer ");
                  
 
             <div class="input-group">
-            <button type="submit" class="btn" name="reg_svtitle">Submit</button>
+            <button type="submit"  class="btn" name="reg_svtitle">Submit</button>
         </div>
 
-            
+             </form>
             </div>
+
         </center>
     <br><br><br><br><br>
 
 <?php
+  $U_id = "";
+  $role    = "";
+  $errors = array(); 
+  $_SESSION['success'] = "";
 
-  
+  if (isset($_POST['reg_svtitle'])) {
 
         // receive all input values from the form
-            $idsvnumber = mysqli_real_escape_string($mysqli, $_POST['A_idsvnumber']);
-            $Lname = mysqli_real_escape_string($mysqli, $_POST['L_name']);
+            $L_id = mysqli_real_escape_string($mysqli, $_POST['L_id']);
+            //$L_name = mysqli_real_escape_string($mysqli, $_POST['L_name']);
             $title = mysqli_real_escape_string($mysqli, $_POST['A_title']);
             $objective = mysqli_real_escape_string($mysqli, $_POST['A_objective']);
             $problem =mysqli_real_escape_string($mysqli, $_POST['A_problem']);
@@ -112,19 +137,34 @@ $resultSet = $mysqli -> query ("SELECT * FROM lecturer ");
             $software = mysqli_real_escape_string($mysqli, $_POST['A_software']);
             $tools = mysqli_real_escape_string($mysqli, $_POST['A_tools']);
             $technique = mysqli_real_escape_string($mysqli, $_POST['A_technique']);
-          
             $message = "$a would like to request an account.";
 
-              $query = "INSERT INTO requests (U_id,A_idsvnumber, L_name, A_title, A_objective,A_problem, A_scope, A_field, A_software, A_tools, A_technique, message, date) VALUES ('$a','$idsvnumber', '{$Lname}', '$title', '$objective','$problem', '$scope', '$field', '$software', '$tools', '$technique', '$message', CURRENT_TIMESTAMP) ";
+            // form validation: ensure that the form is correctly filled
+    if (empty($L_id)) { array_push($errors, "FYP Supervisor is required"); }
+    if (empty($title)) { array_push($errors, "FYP Title is required"); }
+    if (empty($objective)) { array_push($errors, "Objective is required"); }
+    if (empty($problem)) { array_push($errors, "Problem Statement is required"); }
+    if (empty($scope)) { array_push($errors, "Scope is required"); }
+    if (empty($field)) { array_push($errors, "Field is required"); }
+    if (empty($software)) { array_push($errors, "Software is required"); }
+    if (empty($tools)) { array_push($errors, "Tools is required"); }
+    if (empty($technique)) { array_push($errors, "Technique is required"); }
+          
+            
+              // register user if there are no errors in the form
+    if (count($errors) == 0) {
+
+              $query = "INSERT INTO requests (U_id,L_id,  A_title, A_objective,A_problem, A_scope, A_field, A_software, A_tools, A_technique, message, date) VALUES ('$a','$L_id', '$title', '$objective','$problem', '$scope', '$field', '$software', '$tools', '$technique', '$message', CURRENT_TIMESTAMP) ";
 
           if (mysqli_query($mysqli, $query)){
          
                 echo "<script>alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
             }else{
-                echo "<script>alert('Unknown error occured.')</script>";
-         
+              echo "<script>alert('Please complete the form')</script>";
+                
+         }
          }   
-     
+     }
 
 
       

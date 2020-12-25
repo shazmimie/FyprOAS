@@ -25,6 +25,7 @@ $a = $_SESSION['U_id'];?>
    //SQL query
 
   $link = mysqli_connect("localhost","root","","fyp");
+  
 
      $query = " SELECT user.U_name, user.U_id, user.S_program, user.S_category, user.S_pa, application.L_name, application.A_title FROM user LEFT JOIN application ON user.U_id = application.U_id WHERE user.U_id= '$a' ;"  or die(mysqli_connect_error());
     $result = mysqli_query($link, $query);
@@ -128,7 +129,7 @@ if($S_category ==' FYP2'){
 </tr>
 <tr>
 <td>FYP Title:</td>
-<td><?php echo $A_title;?></td>
+<td><input type="text" name="A_title" value="<?php echo $A_title;?>"></td>
 </tr>
  
 

@@ -1,3 +1,5 @@
+
+  
 <?php
    //we need session for the log in thingy XD 
     
@@ -139,6 +141,7 @@ if($result = mysqli_query($mysqli, $sql)){
 
                 if(count(fetchAll($query))>0){
                     foreach(fetchAll($query) as $row){
+                       $U_id = $row['U_id'];
                        $L_id = $row['L_id'];
                          $L_name = $row['L_name'];
     

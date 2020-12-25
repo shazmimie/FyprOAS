@@ -25,7 +25,9 @@
 
         $query .= "DELETE FROM `requests` WHERE `requests`.`U_id` = '$U_id';";
         if(performQuery($query)){
+         
             echo "Student has been accepted.";
+             
         }else{
             echo "Unknown error occured. Please try again.";
         }

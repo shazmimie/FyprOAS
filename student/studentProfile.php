@@ -103,6 +103,7 @@ $a = $_SESSION['U_id'];?>
     echo "</table>";
 
 	?>
+  <a href="../index.php">Back</a>
 <a href="updateStdProfile.php?U_id=<?php echo $a;?>">Edit</a>
   </div>
 
