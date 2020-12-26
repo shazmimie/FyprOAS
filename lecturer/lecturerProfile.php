@@ -12,7 +12,7 @@ $a = $_SESSION['U_id'];?>
    
    <body><br><br>
 <center>
-<h2>Your Profile:</h2><br><br><br><br>
+<h2>Your Profile</h2><br><br><br><br>
     <center>
 
 <table border="0" align="center">
@@ -70,6 +70,9 @@ $a = $_SESSION['U_id'];?>
      }
     echo "</table>";
 	?>
+  <a href="../index.php">Back</a>
+   </center>
+    </center>
 	<?php include '../footer.php';?>
   
 

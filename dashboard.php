@@ -15,7 +15,8 @@
 	
 <button class="button button3" formaction="requests/Capprove.php"><a href="requests/Capprove.php"><h4>STUDENT APPROVAL</h4><br><img src="https://image.flaticon.com/icons/svg/1170/1170220.svg" width="300" height="150"></a></button>
 
-<button class="button button3" formaction="coordinator/allocation.php"><a href="coordinator/allocation.php"><h4>STUDENT-LECTURER ALLOCATION</h4><br><img src="http://cdn.onlinewebfonts.com/svg/img_563914.png" width="300" height="150"></a></button>
+<button class="button button3" formaction="coordinator/allocation.php"><a href="coordinator/allocation.php"><h4>1.0 STUDENT-LECTURER ALLOCATION</h4><br><img src="http://cdn.onlinewebfonts.com/svg/img_563914.png" width="300" height="150"></a></button>
+<button class="button button3" formaction="coordinator/Allocate.php"><a href="coordinator/Allocate.php"><h4>2.0 STUDENT-LECTURER ALLOCATION</h4><br><img src="http://cdn.onlinewebfonts.com/svg/img_563914.png" width="300" height="150"></a></button>
 <?php }?>
 
 <?php if (IsInRole('Student')) { ?>

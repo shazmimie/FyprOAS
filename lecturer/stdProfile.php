@@ -61,7 +61,7 @@ include("function.php");
             <?php
                     }
                 }else{
-                    echo "No Pending Requests.";
+                    echo "No Student Supervised.";
                 }
             ?>
           

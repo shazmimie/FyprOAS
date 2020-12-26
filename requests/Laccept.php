@@ -27,6 +27,7 @@
         if(performQuery($query)){
          
             echo "Student has been accepted.";
+             header('location: Lapprove.php');
              
         }else{
             echo "Unknown error occured. Please try again.";

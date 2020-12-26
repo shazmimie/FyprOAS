@@ -33,7 +33,7 @@ $resultSet = $mysqli -> query ("SELECT * FROM lecturer where L_status='Available
  
         
       <br><br><br><br><br><div id="">
-<table>
+<table  border='1'>
                 <form  method="post" action="SvandTitleApplication.php" >
             
                 
@@ -109,6 +109,7 @@ $resultSet = $mysqli -> query ("SELECT * FROM lecturer where L_status='Available
                  
 
             <div class="input-group">
+                <button type="submit"  class="btn" name="back">Back</button>
             <button type="submit"  class="btn" name="reg_svtitle">Submit</button>
         </div>
 
@@ -168,9 +169,13 @@ $resultSet = $mysqli -> query ("SELECT * FROM lecturer where L_status='Available
 
 
       
+if (isset($_POST['back'])) {
 
-
-
+ echo "<script>window.open('../index.php','_self')</script>";
+            
+                
+         }
+           
                
           ?>
 

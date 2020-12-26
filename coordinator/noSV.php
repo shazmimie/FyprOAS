@@ -30,8 +30,8 @@ $a = $_SESSION['U_id'];?>
    //SQL query
 
    
-
-    $query = " SELECT student.U_name, student.U_id, student.S_category,  application.A_title, application.L_name FROM student LEFT JOIN application ON student.U_id = application.U_id WHERE application.L_name IS NULL ;"  or die(mysqli_connect_error());
+$query = " SELECT * from reject ;" or die(mysqli_connect_error());
+    //$query = " SELECT student.U_name, student.U_id, student.S_category,  application.A_title, application.L_name FROM student LEFT JOIN application ON student.U_id = application.U_id WHERE application.L_name IS NULL ;"  or die(mysqli_connect_error());
     $result = mysqli_query($link, $query);
 
 

@@ -59,9 +59,9 @@
 		</div>
 		<div>
 		<td>
-		Role:&nbsp;<input type="radio" name="role" value="<?php echo COORDINATOR?>">Coordinator
-		<input type="radio" name="role" value="<?php echo STUDENT?>">Student
+		Role:&nbsp;<input type="radio" name="role" value="<?php echo STUDENT?>">Student
 		<input type="radio" name="role" value="<?php echo LECTURER?>">Lecturer
+		
 		</td>	
  </div>
 

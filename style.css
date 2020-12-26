@@ -251,6 +251,7 @@ a {
   table {
   border-collapse: collapse;
   width: 80%;
+  border-radius: 50px 20px;
 }
 
 th, td {

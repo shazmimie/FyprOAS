@@ -29,8 +29,9 @@
 
       <section class="jumbotron text-center">
         <div class="container">
-
-          <table border="0" align="center">
+<center><br><br>
+  <h2>Student Approval</h2><br><br><br><br>
+          <table border="1" align="center">
 <tr>
   
   <th><label for ="L_id">Lecturer ID</label>
@@ -105,9 +106,11 @@
 
             ?>
 
-          
-        </div>
-          
+          </table>
+     
+        <a href="../index.php">Back</a>
+          </center>
+             </div>
       </section>
 
     </main>

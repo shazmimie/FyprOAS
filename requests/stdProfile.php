@@ -29,7 +29,9 @@ $U_id = $_GET['U_id'];
     <main role="main">
 
       <section class="jumbotron text-center">
-        <div class="container">
+    <br><br>    <div class="container">
+  <center>
+    <h2>Student Profile</h2><br><br><br><br>
             <?php
               //$query = "SELECT * FROM requests LEFT JOIN lecturer ON requests.L_id = lecturer.L_id LEFT JOIN student ON student.U_id = requests.U_id where requests.U_id=student.U_id'";
 
@@ -45,31 +47,33 @@ $U_id = $_GET['U_id'];
             $A_title = $row['A_title'];
 
                         ?>
+                         <table border="1">
+                        <tr><tr>
                 
-                      <h3><b><p class="jumbotron-heading">NAME:  </b><?php echo $row['U_name'] ?></p></h3>
-                      <b><p class="lead text-muted">ID:  </b><?php echo $row['U_id'] ?></p>
-                        <b><p class="lead text-muted">PROGRAM:  </b><?php echo $row['S_program'] ?></p>
-                     <b><p class="lead text-muted">ACADEMIC ADVISOR:  </b><?php echo $row['S_pa'] ?></p>
-                      <b><p class="lead text-muted">SUPERVISOR:  </b><?php echo $row['L_name'] ?></p>
-                          <b><p class="lead text-muted">FYP TITLE:  </b><?php echo $row['A_title'] ?></p>
-                      <b><p class="lead text-muted">OBJECTIVE:  </b><?php echo $row['A_objective'] ?></p>
-                       <b><p class="lead text-muted">PROBLEM STATEMENT:  </b><?php echo $row['A_problem'] ?></p>
-                       <b><p class="lead text-muted">SCOPE:  </b><?php echo $row['A_scope'] ?></p>
-                         <b><p class="lead text-muted">FIELD:  </b><?php echo $row['A_field'] ?></p>
-                          <b><p class="lead text-muted">SOFTWARE:  </b><?php echo $row['A_software'] ?></p>
-                           <b><p class="lead text-muted">TOOLS:  </b><?php echo $row['A_tools'] ?></p>
-                            <b><p class="lead text-muted">TECHNIQUE:  </b><?php echo $row['A_technique'] ?></p>
-                      
-                     
+                      <td><b><p class="jumbotron-heading">NAME:  </b></td><td><?php echo $row['U_name'] ?></p></td></tr>
+                      <td><b><p class="lead text-muted">ID:  </b></td><td><?php echo $row['U_id'] ?></p></td></tr>
+                        <td><b><p class="lead text-muted">PROGRAM:  </b></td><td><?php echo $row['S_program'] ?></p></td></tr>
+                     <td><b><p class="lead text-muted">ACADEMIC ADVISOR:  </b></td><td><?php echo $row['S_pa'] ?></p></td></tr>
+       
+                          <td><b><p class="lead text-muted">FYP TITLE:  </b></td><td><?php echo $row['A_title'] ?></p></td></tr>
+                      <td><b><p class="lead text-muted">OBJECTIVE:  </b></td><td><?php echo $row['A_objective'] ?></p></td></tr>
+                       <td><b><p class="lead text-muted">PROBLEM STATEMENT:  </b></td><td><?php echo $row['A_problem'] ?></p></td></tr>
+                       <td><b><p class="lead text-muted">SCOPE:  </b></td><td><?php echo $row['A_scope'] ?></p></td></tr>
+                         <td><b><p class="lead text-muted">FIELD:  </b></td><td><?php echo $row['A_field'] ?></p></td></tr>
+                          <td><b><p class="lead text-muted">SOFTWARE:  </b></td><td><?php echo $row['A_software'] ?></p></td></tr>
+                           <td><b><p class="lead text-muted">TOOLS:  </b></td><td><?php echo $row['A_tools'] ?></p></td></tr>
+                            <td><b><p class="lead text-muted">TECHNIQUE:  </b></td><td><?php echo $row['A_technique'] ?></p></td>
+                      </tr></tr>
+                        </table>
             <?php
                     }
                 }else{
                     echo "No Pending Requests.";
                 }
             ?>
-          
+         </center>
         </div>
-          
+        
       </section>
 
     </main>

@@ -24,8 +24,9 @@
             $A_software = $row['A_software'];
             $A_tools = $row['A_tools'];
             $A_technique = $row['A_technique'];
-           
-$query2 = "update student set L_name='$L_name'  where U_id='$U_id'";
+
+$query2 = "UPDATE student SET L_id='$L_id',L_name='$L_name' WHERE U_id='$U_id'  ;";
+//$query2 = "update student set L_name='$L_name'  where U_id='$U_id'";
 
 $result2 = mysqli_query($link, $query2) or die(mysqli_error($link));
 if($result2==1)
@@ -44,6 +45,7 @@ if($result3==1)
         $result4 = mysqli_query($link, $query4) or die(mysqli_error($link));
 if($result4==1){
              echo "<script>(Student has been accepted.)</script>";
+              header('location: Capprove.php');
         }else{
             echo "Unknown error occured. Please try again.";
         }

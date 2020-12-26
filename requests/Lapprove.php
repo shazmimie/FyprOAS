@@ -29,7 +29,8 @@
 
     <main role="main">
 <section class="jumbotron text-center">
-
+<center><br><br>
+  <h2>Student Approval</h2><br><br><br><br>
 <table border="1" align="center">
 <tr>
   <th><label>Category</label>
@@ -117,10 +118,11 @@ if($result = mysqli_query($mysqli, $sql)){
 }
   echo "<br>";
 ?>
+ </table> 
 </div>
         <div class="container">
-
-          <table border="0" align="center">
+<center>
+          <table border="1" align="center">
 <tr>
   <th><label for ="L_id">Lecturer ID</label>
    <th><label for ="L_name">Lecturer Name</label>
@@ -172,13 +174,16 @@ if($result = mysqli_query($mysqli, $sql)){
              
 
             ?>
-          
+            
+           </table>
+ <a href="../index.php">Back</a>
         </div>
-          
-      </section>
+          </center>
+        </center>
+     </section>
 
     </main>
-
+  <?php include '../footer.php';?>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

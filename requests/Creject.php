@@ -16,8 +16,8 @@
     while ( $row = $result -> fetch_assoc()) {
             $U_id = $row['U_id'];
             $S_category = $row['S_category'];
-            $L_id = $row['L_id'];
-            $L_name = $row['L_name'];
+            //$L_id = $row['L_id'];
+            //$L_name = $row['L_name'];
             $A_title = $row['A_title'];
             $A_objective = $row['A_objective'];
             $A_problem = $row['A_problem'];
@@ -28,7 +28,7 @@
             $A_technique = $row['A_technique'];
             $message = $row['message'];
     
-                  $query2 = "INSERT INTO reject (U_id, S_category,L_id, L_name, A_title, A_objective,A_problem, A_scope, A_field, A_software, A_tools, A_technique, message, date) VALUES ('$U_id','$S_category','$L_id', '$L_name', '$A_title', '$A_objective','$A_problem', '$A_scope', '$A_field', '$A_software', '$A_tools', '$A_technique', '$message', CURRENT_TIMESTAMP) ;";
+                  $query2 = "INSERT INTO reject (U_id, S_category, A_title, A_objective,A_problem, A_scope, A_field, A_software, A_tools, A_technique, message, date) VALUES ('$U_id','$S_category', '$A_title', '$A_objective','$A_problem', '$A_scope', '$A_field', '$A_software', '$A_tools', '$A_technique', '$message', CURRENT_TIMESTAMP) ;";
 
         $result2 = mysqli_query($link, $query2) or die(mysqli_error($link));
 if($result2==1){
@@ -41,6 +41,7 @@ if($result2==1){
         $result3 = mysqli_query($link, $query3) or die(mysqli_error($link));
 if($result3==1){
              echo "<script>(Student has been accepted.)</script>";
+              header('location: Capprove.php');
         }else{
             echo "Unknown error occured. Please try again.";
         }

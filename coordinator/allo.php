@@ -35,7 +35,7 @@
 $link = NEW MySQLi ('localhost','root','','fyp');
 //$link = NEW MySQLi ("localhost","root","","fyp");
 
-$resultSet = $link -> query("SELECT  * FROM student where student.L_name='' ;");
+$resultSet = $link -> query("SELECT  * FROM reject where reject.L_name='' ;");
 
 //$result = $link->query($resultSet);
     if($resultSet){
@@ -62,7 +62,8 @@ $resultSet = $link -> query("SELECT  * FROM student where student.L_name='' ;");
            $U_id = $_row ['U_id'];
            $U_name = $_row ['U_name'];
 echo '<option value="' . $row['U_id']. '">' . $row['U_id'] . '</option>';
-  echo $row['S_category'];  }
+  //echo $row['S_category'];  
+}
  //echo "</select>";
 
 ?>
@@ -75,9 +76,15 @@ echo '<option value="' . $row['U_id']. '">' . $row['U_id'] . '</option>';
   
   <button  type="submit" class="btn" name="addstd" href="addstd.php?U_id=<?php echo $row['U_id'] ?>">Submit</button>
           
-             
+   <?php
+    //include('functions.php');
+    //$U_id= $_GET['U_id'];
+      //$L_id = $_GET['L_id'];
+   
+     
+          
        
-<?php
+
 
 $select = "SELECT * FROM lecturer where L_id='$L_id' ";
 $run = mysqli_query($link, $select);
@@ -110,9 +117,78 @@ $L_name= $row['L_name'];
 
         </tr></form><br><br>
 
+<table border="1" align="center">
+<tr>
+  <th> Student ID</th>
+    <th>Category</th>
+   <th>FYP Title</th>
+    <th>Objective</th>
+    <th>Problem Statement</th>
+    <th>Scope</th>
+    <th>Field</th>
+    <th>Software</th> 
+    <th>Tools</th>
+    <th>Technique</th>
+   
+  
+
+  
+</tr>
+   
+
+   
+
+      <section class="jumbotron text-center">
+        <div class="container">
+
+          
+                 <?php
+              $query = "SELECT * from reject  ";
+                //$query = "select * from requests2 order by L_id ASC ";
+
+                //if(count(fetchAll($query))>0){
+                    //foreach(fetchAll($query) as $row){
+              $result = mysqli_query($link, $query);
 
 
-<table border="0" align="center">
+    //Loop the recordset $rs
+  
+
+    while ( $row = $result -> fetch_assoc()) {
+            $U_id = $row['U_id'];
+            $S_category = $row['S_category'];
+            $A_title = $row['A_title'];
+            $A_objective = $row['A_objective'];
+            $A_problem = $row['A_problem'];
+            $A_scope = $row['A_scope'];
+            $A_field = $row['A_field'];
+            $A_software = $row['A_software'];
+            $A_tools = $row['A_tools'];
+            $A_technique = $row['A_technique'];
+
+
+                        ?>
+                         <tr>
+ 
+               
+                     <td><p class="lead text-muted"><?php echo $row['U_id'] ?></p></td>
+                     <td><p class="lead text-muted"><?php echo $row['S_category'] ?></p></td>
+                     <td><p class="lead text-muted"><?php echo $row['A_title'] ?></p></td>
+                     <td><p class="lead text-muted"><?php echo $row['A_objective'] ?></p></td>
+                     <td><p class="lead text-muted"><?php echo $row['A_problem'] ?></p></td>
+                     <td><p class="lead text-muted"><?php echo $row['A_scope'] ?></p></td>
+                     <td><p class="lead text-muted"><?php echo $row['A_field'] ?></p></td>
+                     <td><p class="lead text-muted"><?php echo $row['A_software'] ?></p></td>
+                     <td><p class="lead text-muted"><?php echo $row['A_tools'] ?></p></td>
+                     <td><p class="lead text-muted"><?php echo $row['A_technique'] ?></p></td></tr>
+          
+                <?php
+                    }
+                
+            ?>
+         
+
+<table border="1" align="center">
 <tr>
   <th> Supervisor</th>
     <th>Student Name</th>
@@ -125,7 +201,7 @@ $L_name= $row['L_name'];
   
 
   
-</tr>
+</tr><br>
    
 
    

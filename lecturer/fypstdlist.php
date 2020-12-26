@@ -29,6 +29,9 @@ include("function.php");
 
       <section class="jumbotron text-center">
         <div class="container">
+
+          <center><br><br>
+  <h2>Student List:</h2><br><br><br><br>
             <?php
               $query = "SELECT * FROM application LEFT JOIN lecturer ON application.L_id = lecturer.L_id LEFT JOIN student ON application.U_id = student.U_id where application.L_id='$a' order by application.L_id ASC";
                 //$query = "select * from requests2 order by L_id ASC ";
@@ -56,10 +59,7 @@ include("function.php");
                           <b><p class="lead text-muted">SOFTWARE:  </b><?php echo $row['A_software'] ?></p>
                            <b><p class="lead text-muted">TOOLS:  </b><?php echo $row['A_tools'] ?></p>
                             <b><p class="lead text-muted">TECHNIQUE:  </b><?php echo $row['A_technique'] ?></p>
-                            <p>
-                        <td><a href="Ldelete.php?U_id=<?php echo $row['U_id'] ?>" class="btn btn-primary my-2">Delete</a></td>
-                    
-                      </p>
+                          
                       
                       
                       <br>
@@ -68,7 +68,7 @@ include("function.php");
             <?php
                     }
                 }else{
-                    echo "No Pending Requests.";
+                    echo "No Student Supervised.";
                 }
             ?>
           
