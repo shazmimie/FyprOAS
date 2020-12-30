@@ -6,7 +6,7 @@ include("functions.php");
 $U_id = $_GET['U_id'];
    $a = $_SESSION['U_id'];?>
  
- <?php CheckRole('Lecturer') ?>
+ <?php CheckRole('Coordinator') ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,18 +24,18 @@ $U_id = $_GET['U_id'];
 
   <body>
 
-   
+  
 
     <main role="main">
 
       <section class="jumbotron text-center">
     <br><br>    <div class="container">
   <center>
-    <h2>Student Profile</h2><br><br><br><br>
+     <br><br><br><br><br><br><br><br><br><h2>Student Info</h2><br><br><br><br>
             <?php
               //$query = "SELECT * FROM requests LEFT JOIN lecturer ON requests.L_id = lecturer.L_id LEFT JOIN student ON student.U_id = requests.U_id where requests.U_id=student.U_id'";
 
-               $query = "SELECT * FROM requests LEFT JOIN student ON requests.U_id = student.U_id LEFT JOIN lecturer ON requests.L_id = lecturer.L_id  where requests.U_id='$U_id' AND requests.L_id='$a' ";
+               $query = "SELECT * FROM requests2 LEFT JOIN student ON requests2.U_id = student.U_id  where requests2.U_id='$U_id'  ";
                 //$query = "select * from requests2 order by L_id ASC ";
          
 
@@ -71,6 +71,7 @@ $U_id = $_GET['U_id'];
                     echo "No Pending Requests.";
                 }
             ?>
+            <a href="Capprove.php">Back</a>
          </center>
         </div>
         

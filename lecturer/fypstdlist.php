@@ -31,7 +31,8 @@ include("function.php");
         <div class="container">
 
           <center><br><br>
-  <h2>Student List:</h2><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><h2>Student List:</h2><br><br><br><br>
+</center>
             <?php
               $query = "SELECT * FROM application LEFT JOIN lecturer ON application.L_id = lecturer.L_id LEFT JOIN student ON application.U_id = student.U_id where application.L_id='$a' order by application.L_id ASC";
                 //$query = "select * from requests2 order by L_id ASC ";
@@ -48,30 +49,26 @@ include("function.php");
                  <tr>
                     <h3><b><p class="jumbotron-heading">NAME:  </b><?php echo $row['U_name'] ?></p></h3>
                       <b><p class="lead text-muted">ID:  </b><?php echo $row['U_id'] ?></p>
-                        <b><p class="lead text-muted">PROGRAM:  </b><?php echo $row['S_program'] ?></p>
-                     <b><p class="lead text-muted">ACADEMIC ADVISOR:  </b><?php echo $row['S_pa'] ?></p>
-                      <b><p class="lead text-muted">SUPERVISOR:  </b><?php echo $row['L_name'] ?></p>
-                          <b><p class="lead text-muted">FYP TITLE:  </b><?php echo $row['A_title'] ?></p>
-                      <b><p class="lead text-muted">OBJECTIVE:  </b><?php echo $row['A_objective'] ?></p>
-                       <b><p class="lead text-muted">PROBLEM STATEMENT:  </b><?php echo $row['A_problem'] ?></p>
-                       <b><p class="lead text-muted">SCOPE:  </b><?php echo $row['A_scope'] ?></p>
-                         <b><p class="lead text-muted">FIELD:  </b><?php echo $row['A_field'] ?></p>
-                          <b><p class="lead text-muted">SOFTWARE:  </b><?php echo $row['A_software'] ?></p>
-                           <b><p class="lead text-muted">TOOLS:  </b><?php echo $row['A_tools'] ?></p>
-                            <b><p class="lead text-muted">TECHNIQUE:  </b><?php echo $row['A_technique'] ?></p>
-                          
+                        <b><p class="lead text-muted">FYP TITLE:  </b><?php echo $row['S_program'] ?></p>
+
+           
+                          <p>
+                        <a href="LstdProfile.php?U_id=<?php echo $row['U_id'] ?>" class="btn btn-primary my-2">View</a>
+                        
+                      </p>
                       
                       
-                      <br>
-                      <hr>
+                      <br><br><br>
+                      <hr><br>
                   </tr>
             <?php
                     }
                 }else{
                     echo "No Student Supervised.";
                 }
-            ?>
-          
+            ?><center>
+             <a href="../index.php">Back</a>
+          </center>
         </div>
           
       </section>

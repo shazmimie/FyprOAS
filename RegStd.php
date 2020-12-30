@@ -1,16 +1,17 @@
-
-<?php include '../header.php';
+<?php include 'constants.php';?>
+<?php include('server.php') ?>
+<?php 
 
 $a = $_SESSION['U_id'];?>
+ <?php if (IsInRole('Student')) { ?>
 
- <?php CheckRole('Student') ?>
   <!-- Breadcrumbs-->
    
     <!DOCTYPE html>
 <html>
 <head>
   <title>Home</title>
-  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 <div class="container">
    
    <body><br><br>
@@ -28,7 +29,6 @@ $a = $_SESSION['U_id'];?>
   
 
      $query = " SELECT user.U_name, user.U_id, user.S_program, user.S_category, user.S_pa, application.L_name, application.A_title FROM user LEFT JOIN application ON user.U_id = application.U_id WHERE user.U_id= '$a' ;"  or die(mysqli_connect_error());
-  //$query = " SELECT * FROM user WHERE user.U_id= '$a' ;"  or die(mysqli_connect_error());
     $result = mysqli_query($link, $query);
 
 
@@ -47,7 +47,7 @@ $L_name = $row['L_name'];
 $A_title = $row['A_title'];
 
 ?>
-<form action="updateStdProfile.php?U_id=<?php echo $U_id;?>" method="post">
+<form action="RegStd.php?U_id=<?php echo $U_id;?>" method="post">
 
 
 <table>
@@ -139,7 +139,7 @@ if($S_category ==' FYP2'){
   </form>
 </table>  
     <?php }?>
-
+<?php } ?>
     <?php
 if(isset($_POST['update'])){
 
@@ -156,21 +156,16 @@ $update = "update user set U_name='$U_name',S_program='$S_program',S_category='$
 $query2 = mysqli_query($link, $update) or die(mysqli_error($link));
 if($query2==1)
 {
-  $sql = " SELECT * from user " ;
-   $query3 = mysqli_query($link, $sql) or die(mysqli_error($link));
-  //$sql="INSERT INTO student (U_id, U_name, S_program, S_category, S_pa) VALUES('$id','$U_name', '$S_program', '$S_category', '$S_pa'  )";
-
-  if($query3==1)
-{
-  $sql2 = "update student set U_name='$U_name',S_program='$S_program',S_category='$S_category',S_pa='$S_pa'  where U_id='$id'";
-  $query4 = mysqli_query($link, $sql2) or die(mysqli_error($link));
-if($query4==1)
+  $sql="INSERT INTO student (U_id, U_name, S_program, S_category, S_pa) VALUES('$id','$U_name', '$S_program', '$S_category', '$S_pa'  )";
+  //$sql = "update student set U_name='$U_name',S_program='$S_program',S_category='$S_category',S_pa='$S_pa'  where U_id='$id'";
+  $query3 = mysqli_query($link, $sql) or die(mysqli_error($link));
+if($query3==1)
 {
 
 
 
   echo "<script>alert('Record Update Successfully')</script>";
-  echo "<script>window.open('studentProfile.php','_self')</script>";
+  echo "<script>window.open('index.php','_self')</script>";
 }
 else
 {
@@ -178,14 +173,14 @@ else
 }
 }
 }
-}
 
 
-
+ 
 
 
 
 
 
 ?>
-	<?php include '../footer.php';?>
+
+

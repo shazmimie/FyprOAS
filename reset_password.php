@@ -1,12 +1,5 @@
-<?php include 'constants.php';?>
 <?php include('server.php') ?>
- <style>
-#body {
-  background-image: url('UMP.jpg');
-}
-</style>
-
-
+<body id="page-top">
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
     <a class="navbar-brand mr-1" href="/<?php echo ROOT?>/dashboard.php">FYPrOAS</a>
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
@@ -18,6 +11,7 @@
          <a href="register.php">SignUp</a>
                 <a href="login.php">SignIn</a>
             
+            
 
             
                
@@ -26,58 +20,39 @@
      
   
   </nav>
-
-
 <!DOCTYPE html>
 <html>
 <head>
-	
-	<title>FYPrOAS - Register New Account</title>
-	
+	<title>Reset Password</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body><br><br><br><br>
 <center>
 	<div class="header">
-		<h2>Register</h2>
+		<h2>Reset Password</h2>
 	</div>
 	</center><br><br>
-	<form method="post" action="register.php">
+	<form method="post" action="reset_password.php">
 
 		<?php include('errors.php'); ?>
+
 		
-		<div class="input-group">
-			<label>User ID</label>
-			<input type="text" name="U_id" value="<?php echo $U_id ?>">
-		</div>
-		<div class="input-group">
-			<label>Email</label>
-			<input type="email" name="email" value="<?php echo $email ?>">
-		</div>
 		<div class="input-group">
 			<label>Password</label>
 			<input type="password" name="password_1">
 		</div>
 		<div class="input-group">
-			<label>Confirm password</label>
+			<label>Confirm Password</label>
 			<input type="password" name="password_2">
 		</div>
-		<div>
-		<td>
-		Role:&nbsp;<input type="radio" name="role" value="<?php echo STUDENT?>">Student
-		<input type="radio" name="role" value="<?php echo LECTURER?>">Lecturer
-		
-		</td>	
- </div>
-
 		<div class="input-group">
-			<button type="submit" class="btn" name="reg_user">Register</button>
+			<button type="submit" class="btn" name="reset_password">Reset Password</button>
 		</div>
-		<p>
-			Already a member? <a href="login.php">Sign in</a>
-		</p>
+		
+		
 	</form>
 
-	<footer class="w3-container w3-padding-16 w3-grey">
+<footer class="w3-container w3-padding-16 w3-grey">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright © FYPrOAS 2020</span>
@@ -89,12 +64,12 @@
     <!-- /.content-wrapper -->
 
   </div>
+
   <!-- /#wrapper -->
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-  </div>
 </body>
 </html>

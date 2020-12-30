@@ -1,7 +1,7 @@
 <?php
    //we need session for the log in thingy XD 
     
-  include '../header.php';
+  include 'header.php';
   include("functions.php");
    $a = $_SESSION['U_id'];?>
 
@@ -18,7 +18,7 @@
 
     <!-- Bootstrap core CSS -->
    
-<link rel="stylesheet" type="text/css" href="../style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
   <body>
@@ -110,7 +110,7 @@
 
           </table>
      
-        <a href="../index.php">Back</a>
+        <a href="index.php">Back</a>
           </center>
              </div>
       </section>

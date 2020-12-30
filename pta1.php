@@ -1,4 +1,4 @@
-<?php include '../header.php';
+<?php include 'header.php';
 
 $a = $_SESSION['U_id'];?>
 
@@ -8,7 +8,7 @@ $a = $_SESSION['U_id'];?>
 <html>
 <head>
 	 <br><br><br><br><br><br><br><br><br><br><title>Home</title>
-	<link rel="stylesheet" type="text/css" href="../style.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 <div class="container">
    
    <body><br><br>
@@ -174,7 +174,7 @@ else
   </div>
 
 
- <?php include '../footer.php'; ?>
+ <?php include 'footer.php'; ?>
 </html>
  </head>
 

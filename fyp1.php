@@ -1,4 +1,4 @@
-<?php include '../header.php';
+<?php include 'header.php';
 
 $a = $_SESSION['U_id'];?>
 
@@ -7,33 +7,33 @@ $a = $_SESSION['U_id'];?>
 <!DOCTYPE html>
 <html>
 <head>
-	 <br><br><br><br><br><br><br><br><br><br><title>Home</title>
-	<link rel="stylesheet" type="text/css" href="../style.css">
+   <br><br><br><br><br><br><br><br><br><br><title>Home</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 <div class="container">
    
    <body><br><br>
 <center>
 
 
-  	<h2>PTA 1 List:</h2><br><br><br><br>
-  	<center>
+    <h2>FYP 1 List:</h2><br><br><br><br>
+    <center>
 
 <table border="1" align="center">
 <tr>
-	<th>Student Name</th>
-	<th>Student ID</th>
-	<th> FYP Title</th>
-	<th>Supervisor</th>
-	<th>Category</th>
+    <th>Student Name</th>
+  <th>Student ID</th>
+  <th> FYP Title</th>
+  <th>Supervisor</th>
+  <th>Category</th>
   <th>Edit Category</th>
   <th>Update</th>
   <th>Delete</th>
-	
+  
 </tr>
   <?php
    //SQL query
 
-    $sql = " SELECT student.U_name, student.U_id, student.S_category, application.A_title, application.L_name FROM student LEFT JOIN application ON student.U_id = application.U_id WHERE student.S_category ='PTA1'  ;"  or die(mysqli_connect_error());
+    $sql = " SELECT student.U_name, student.U_id, student.S_category, application.A_title, application.L_name FROM student LEFT JOIN application ON student.U_id = application.U_id WHERE student.S_category ='FYP1'  ;"  or die(mysqli_connect_error());
     $results = mysqli_query($link, $sql);
     //Loop the recordset $rs
   
@@ -52,7 +52,7 @@ $L_name = $row['L_name'];
 
 
   <tr>
-<form action="pta1.php?U_id=<?php echo $U_id;?>" method="post">
+<form action="fyp1.php?U_id=<?php echo $U_id;?>" method="post">
                
                      <td><p class="lead text-muted"><?php echo $row['U_name'] ?></p></td>
                      <td><p class="lead text-muted"><?php echo $row['U_id'] ?></p></td>
@@ -60,20 +60,20 @@ $L_name = $row['L_name'];
                    <td><p class="lead text-muted"><?php echo $row['L_name'] ?></p></td>
                      <td><p class="lead text-muted"><?php echo $row['S_category']?></p></td>
                      <td>
-<select name="S_category"><option value="PTA1"
+<select name="S_category"><option value="FYP1"
 <?php
-if($S_category =='PTA1'){
+if($S_category =='FYP1'){
   echo "selected";
 }
 ?>
->PTA1</option>
-<option value="PTA2"
+>FYP1</option>
+<option value="FYP2"
 <?php
-if($S_category =='PTA2'){
+if($S_category =='FYP2'){
   echo "selected"; 
 }
 ?>
->PTA2</option>
+>FYP2</option>
 </select></td>
  <div class="input-group">
                
@@ -115,7 +115,7 @@ $query3 = "UPDATE application SET S_category='$S_category' WHERE U_id='$id'  ;";
 if($result3)
 {
   echo "Lecturer Status Update Successfully";
-  echo "<script>window.open('pta1.php','_self')</script>";
+  echo "<script>window.open('fyp1.php','_self')</script>";
 }
 }
 }
@@ -174,7 +174,7 @@ else
   </div>
 
 
- <?php include '../footer.php'; ?>
+ <?php include 'footer.php'; ?>
 </html>
  </head>
 

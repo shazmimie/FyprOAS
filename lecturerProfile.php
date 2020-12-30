@@ -1,5 +1,5 @@
 
-<?php include '../header.php';
+<?php include 'header.php';
 $a = $_SESSION['U_id'];?>
 <?php CheckRole('Lecturer') ?>
   
@@ -7,12 +7,12 @@ $a = $_SESSION['U_id'];?>
 <html>
 <head>
   <title>Home</title>
-  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 <div class="container">
    
    <body><br><br>
 <center>
-<h2>Your Profile</h2><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><h2>Your Profile</h2><br><br><br><br>
     <center>
 
 <table border="0" align="center">
@@ -70,10 +70,11 @@ $a = $_SESSION['U_id'];?>
      }
     echo "</table>";
 	?>
-  <a href="../index.php">Back</a>
+  <a href="index.php">Back</a>
    </center>
     </center>
-	<?php include '../footer.php';?>
+     </div>
+	<?php include 'footer.php';?>
   
 
 

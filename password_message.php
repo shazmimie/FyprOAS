@@ -29,35 +29,12 @@
 <body><br><br><br><br>
 <center>
 	<div class="header">
-		<h2>Login</h2>
+		<h2>Password Message</h2>
 	</div>
 	</center><br><br>
-	<form method="post" action="login.php">
-
-		<?php include('errors.php'); ?>
-
-		<div class="input-group">
-			<label>User ID</label>
-			<input type="text" name="U_id" >
-		</div>
-		<div class="input-group">
-			<label>Password</label>
-			<input type="password" name="U_password">
-		</div>
-		<div class="input-group">
-			<button type="submit" class="btn" name="login_user">Login</button>
-		</div>
+	
+<center><p>An email has been sent to your email address to with a link to reset your password.</p>
 		
-		<p>
-			Not yet a member?<a href="register.php" color='blue'>Sign up</div></a>
-			
-		</p><br>
-		<p>
-			
-			Forgot Password?<a href="forgotPassword.php">Reset Password</a>
-		</p>
-	</form>
-
 <footer class="w3-container w3-padding-16 w3-grey">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">

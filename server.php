@@ -5,6 +5,7 @@ include 'selectDB.php';
 	// variable declaration
 	$U_id = "";
 	$role    = "";
+	$email    = "";
 	$errors = array(); 
 	$_SESSION['success'] = "";
 
@@ -53,7 +54,7 @@ $result = mysqli_query($link, $query);
 $results = mysqli_query($link, $sql);
 $resul=mysqli_query($sql);
 if($role ==STUDENT){
- header('location: updateStdProfile.php');
+ header('location: RegStd.php');
 }
 
 	else if ($role ==LECTURER){

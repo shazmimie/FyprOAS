@@ -1,7 +1,7 @@
 <?php
    //we need session for the log in thingy XD 
     
-  include '../header.php';
+  include 'header.php';
 include("function.php");
    $a = $_SESSION['U_id'];?>
 
@@ -18,7 +18,7 @@ include("function.php");
 
     <!-- Bootstrap core CSS -->
    
-<link rel="stylesheet" type="text/css" href="../style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
   <body>
@@ -29,8 +29,12 @@ include("function.php");
 
       <section class="jumbotron text-center">
         <div class="container">
+
+          <center><br><br>
+  <br><br><br><br><br><br><br><br><br><br><h2>Student List:</h2><br><br><br><br>
+</center>
             <?php
-              $query = "SELECT * FROM application LEFT JOIN lecturer ON application.L_id = lecturer.L_id LEFT JOIN student ON student.U_id = application.U_id where application.U_id=student.U_id'";
+              $query = "SELECT * FROM application LEFT JOIN lecturer ON application.L_id = lecturer.L_id LEFT JOIN student ON application.U_id = student.U_id where application.L_id='$a' order by application.L_id ASC";
                 //$query = "select * from requests2 order by L_id ASC ";
          
 
@@ -42,29 +46,29 @@ include("function.php");
             $A_title = $row['A_title'];
 
                         ?>
-                
-                     <p class="lead text-muted"><?php echo $row['U_name'] ?></p>
-                      <p class="lead text-muted"><?php echo $row['U_id'] ?></p>
-                        <p class="lead text-muted"><?php echo $row['S_program'] ?></p>
-                      <p class="lead text-muted"><?php echo $row['S_pa'] ?></p>
-                        <p class="lead text-muted"><?php echo $row['L_name'] ?></p>
-                          <p class="lead text-muted"><?php echo $row['A_title'] ?></p>
-                      <p class="lead text-muted"><?php echo $row['A_objective'] ?></p>
-                       <p class="lead text-muted"><?php echo $row['A_problem'] ?></p>
-                        <p class="lead text-muted"><?php echo $row['A_scope'] ?></p>
-                         <p class="lead text-muted"><?php echo $row['A_field'] ?></p>
-                          <p class="lead text-muted"><?php echo $row['A_software'] ?></p>
-                           <p class="lead text-muted"><?php echo $row['A_tools'] ?></p>
-                            <p class="lead text-muted"><?php echo $row['A_technique'] ?></p>
+                 <tr>
+                    <h3><b><p class="jumbotron-heading">NAME:  </b><?php echo $row['U_name'] ?></p></h3>
+                      <b><p class="lead text-muted">ID:  </b><?php echo $row['U_id'] ?></p>
+                        <b><p class="lead text-muted">FYP TITLE:  </b><?php echo $row['S_program'] ?></p>
+
+           
+                          <p>
+                        <a href="LstdProfile.php?U_id=<?php echo $row['U_id'] ?>" class="btn btn-primary my-2">View</a>
+                        
+                      </p>
                       
-                     
+                      
+                      <br><br><br>
+                      <hr><br>
+                  </tr>
             <?php
                     }
                 }else{
                     echo "No Student Supervised.";
                 }
-            ?>
-          
+            ?><center>
+             <a href="index.php">Back</a>
+          </center>
         </div>
           
       </section>

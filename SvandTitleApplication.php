@@ -1,7 +1,7 @@
 <?php
    //we need session for the log in thingy XD 
     
-  include '../header.php';
+  include 'header.php';
   
 $a = $_SESSION['U_id'];?>
 
@@ -12,18 +12,19 @@ $a = $_SESSION['U_id'];?>
 <?php
 $mysqli = NEW MySQLi ('localhost','root','','fyp');
 
-$resultSet = $mysqli -> query ("SELECT * FROM lecturer ");
-$result = $mysqli->query($resultSet);
-    if($result){
-        $row = mysqli_fetch_assoc($result);
-        $L_id = $row['L_id'];
-        $L_name = $row['L_name'];
-}
+$resultSet = $mysqli -> query ("SELECT * FROM lecturer where L_status='Available' ");
+//$result = $mysqli->query($resultSet);
+    //if($result){
+        //$row = mysqli_fetch_assoc($result);
+        //$L_id = $row['L_id'];
+        //$L_name = $row['L_name'];
+//}
 ?>
 
-    <br><br><br><br><br>
-    <center><h1><b><font size = "6"> SV and Title Application</font></b></h1></center>
-<link rel="stylesheet" type="text/css" href="../style.css">
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <center><h2><b><font > SV and Title Application</font></b></h2></center>
+<link rel="stylesheet" type="text/css" href="style.css">
 
         <br>
         <br><br><br>
@@ -31,9 +32,9 @@ $result = $mysqli->query($resultSet);
 
  
         
-      <br><br><br><br><br><div id="">
-<table>
-                <form method="post" action="hahaha.php">
+      <br><br><br><div id="">
+<table  border='1'>
+                <form  method="post" action="SvandTitleApplication.php" >
             
                 
                     <tr><td>FYP SUPERVISOR  :</td>
@@ -108,21 +109,27 @@ $result = $mysqli->query($resultSet);
                  
 
             <div class="input-group">
-            <button type="submit" class="btn" name="reg_svtitle">Submit</button>
+                <button type="submit"  class="btn" name="back">Back</button>
+            <button type="submit"  class="btn" name="reg_svtitle">Submit</button>
         </div>
 
-            
+             </form>
             </div>
+
         </center>
     <br><br><br><br><br>
 
 <?php
+  $U_id = "";
+  $role    = "";
+  $errors = array(); 
+  $_SESSION['success'] = "";
 
   if (isset($_POST['reg_svtitle'])) {
 
         // receive all input values from the form
             $L_id = mysqli_real_escape_string($mysqli, $_POST['L_id']);
-            $L_name = mysqli_real_escape_string($mysqli, $_POST['L_name']);
+            //$L_name = mysqli_real_escape_string($mysqli, $_POST['L_name']);
             $title = mysqli_real_escape_string($mysqli, $_POST['A_title']);
             $objective = mysqli_real_escape_string($mysqli, $_POST['A_objective']);
             $problem =mysqli_real_escape_string($mysqli, $_POST['A_problem']);
@@ -131,30 +138,48 @@ $result = $mysqli->query($resultSet);
             $software = mysqli_real_escape_string($mysqli, $_POST['A_software']);
             $tools = mysqli_real_escape_string($mysqli, $_POST['A_tools']);
             $technique = mysqli_real_escape_string($mysqli, $_POST['A_technique']);
-          
             $message = "$a would like to request an account.";
 
-              $query = "INSERT INTO requests (U_id,L_id, L_name, A_title, A_objective,A_problem, A_scope, A_field, A_software, A_tools, A_technique, message, date) VALUES ('$a','$L_id', '$L_name', '$title', '$objective','$problem', '$scope', '$field', '$software', '$tools', '$technique', '$message', CURRENT_TIMESTAMP) ";
+            // form validation: ensure that the form is correctly filled
+    if (empty($L_id)) { array_push($errors, "FYP Supervisor is required"); }
+    if (empty($title)) { array_push($errors, "FYP Title is required"); }
+    if (empty($objective)) { array_push($errors, "Objective is required"); }
+    if (empty($problem)) { array_push($errors, "Problem Statement is required"); }
+    if (empty($scope)) { array_push($errors, "Scope is required"); }
+    if (empty($field)) { array_push($errors, "Field is required"); }
+    if (empty($software)) { array_push($errors, "Software is required"); }
+    if (empty($tools)) { array_push($errors, "Tools is required"); }
+    if (empty($technique)) { array_push($errors, "Technique is required"); }
+          
+            
+              // register user if there are no errors in the form
+    if (count($errors) == 0) {
+
+              $query = "INSERT INTO requests (U_id,L_id,  A_title, A_objective,A_problem, A_scope, A_field, A_software, A_tools, A_technique, message, date) VALUES ('$a','$L_id', '$title', '$objective','$problem', '$scope', '$field', '$software', '$tools', '$technique', '$message', CURRENT_TIMESTAMP) ";
 
           if (mysqli_query($mysqli, $query)){
          
                 echo "<script>alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
             }else{
-                echo "<script>alert('Unknown error occured.')</script>";
-         
+              echo "<script>alert('Please complete the form')</script>";
+                
          }
          }   
-     
+     }
 
 
       
+if (isset($_POST['back'])) {
 
-
-
+ echo "<script>window.open('index.php','_self')</script>";
+            
+                
+         }
+           
                
           ?>
 
 
 
     
-<?php include '../footer.php';?>
+<?php include 'footer.php';?>

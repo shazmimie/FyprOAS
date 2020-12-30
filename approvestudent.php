@@ -1,4 +1,4 @@
-<?php include '../header.php'; ?>
+<?php include 'header.php'; ?>
 <?php CheckRole(COORDINATOR) ?>
 <?php
 
@@ -60,5 +60,5 @@ $result = mysqli_query($link, $query);
     </div>
     <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 </div>
-<?php include '../sidebar.php' ;?>
+
 <?php include '../footer.php'; ?>

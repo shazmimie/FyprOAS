@@ -1,4 +1,6 @@
 <?php include 'constants.php';?>
+
+
 <?php 
   session_start();
 
@@ -12,6 +14,7 @@
 <html lang="en">
 
 <?php include 'selectDB.php';?>
+<header class="w3-container w3-padding-16 w3-grey">
 <body id="page-top">
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
     <a class="navbar-brand mr-1" href="/<?php echo ROOT?>/dashboard.php">FYPrOAS</a>
@@ -36,11 +39,11 @@
     
           <div class="dropdown-divider"></div>
          
-                <a href="../index.php">Home</a>
-               <a href="/<?php echo ROOT?>/student/studentProfile.php">Profile</a>
-                <a formaction="requests/SvandTitleApplication.php"><a href="requests/SvandTitleApplication.php">SV and Title Application</a>
+                <a href="index.php">Home</a>
+                <a formaction="studentProfile.php"><a href="studentProfile.php">Profile</a>
+                <a formaction="SvandTitleApplication.php"><a href="SvandTitleApplication.php">SV and Title Application</a>
                 <a formaction="Notification.php"><a href="Notification.php">Notification</a>
-                <a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                   <a formaction="logout.php"><a href="logout.php">Logout</a>
 
   
      
@@ -56,11 +59,11 @@
     
           <div class="dropdown-divider"></div>
             
-            <a href="../index.php">Home</a>
+            <a href="index.php">Home</a>
                 <a formaction="lecturerProfile.php"><a href="lecturerProfile.php">Profile</a>
                 <a formaction="Lapprove.php"><a href="Lapprove.php">Student Approval</a>
                 <a formaction="fypstdlist.php"><a href="fypstdlist.php">FYP Student</a>
-                <a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                   <a formaction="logout.php"><a href="logout.php">Logout</a>
 
   
      
@@ -75,19 +78,21 @@
     
           <div class="dropdown-divider"></div>
 
-                <a href="../index.php">Home</a>
+                <a href="index.php">Home</a>
                 <a formaction="coordinatorProfile.php"><a href="coordinatorProfile.php">Profile</a>
                 <a formaction="report.php"><a href="report.php">Report</a>
                 <a formaction="Capprove.php"><a href="Capprove.php">Student Approval</a>
                 <a formaction="allocation.php"><a href="allocation.php">Student-Lecturer Allocation</a>
-                <a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logoutModal">Logout</a>
-  
+                <a formaction="lecturerList.php"><a href="lecturerList.php">Lecturer List</a>
+                <a formaction="studentList.php"><a href="studentList.php">Student List</a>
+                    <a formaction="logout.php"><a href="logout.php">Logout</a>
   
      
   
   </nav>
 
  <?php }?>
+ </header>
    <div id="wrapper">
     <!-- Sidebar -->
    

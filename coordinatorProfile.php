@@ -1,13 +1,13 @@
 
-<?php include '../header.php';
+<?php include 'header.php';
 $a = $_SESSION['U_id'];?>
 <?php CheckRole ('Coordinator') ?>
   
  <!DOCTYPE html>
 <html>
 <head>
-  <title>Home</title>
-  <link rel="stylesheet" type="text/css" href="../style.css">
+  <br><br><br><br><br><br><br><br><br><br><title>Home</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 <div class="container">
    
    <body><br><br>
@@ -59,7 +59,8 @@ $a = $_SESSION['U_id'];?>
 	?>
     <a href="../index.php">Back</a>
 <a href="updateCProfile.php?U_id=<?php echo $a;?>">Edit</a>
-	<?php include '../footer.php';?>
+ </div>
+	<?php include 'footer.php';?>
   
 
 

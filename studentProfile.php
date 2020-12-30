@@ -1,5 +1,5 @@
 
-<?php include '../header.php';
+<?php include 'header.php';
 
 $a = $_SESSION['U_id'];?>
 
@@ -15,7 +15,7 @@ $a = $_SESSION['U_id'];?>
    
    <body><br><br>
 <center>
-<h2>Your Profile:</h2><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><h2>Your Profile:</h2><br><br><br><br>
     <center>
 
 <table border="0" align="center">
@@ -103,8 +103,8 @@ $a = $_SESSION['U_id'];?>
     echo "</table>";
 
 	?>
-  <a href="../index.php">Back</a>
+  <a href="index.php">Back</a>
 <a href="updateStdProfile.php?U_id=<?php echo $a;?>">Edit</a>
   </div>
 
-	<?php include '../footer.php';?>
+	<?php include 'footer.php';?>

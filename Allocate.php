@@ -3,7 +3,7 @@
 <?php
    //we need session for the log in thingy XD 
    
-  include '../header.php';
+  include 'header.php';
  include("function.php");
    //$L_id = $_GET['L_id'];
    $a = $_SESSION['U_id'];?>
@@ -23,7 +23,7 @@
    
 
   </head>
-<link rel="stylesheet" type="text/css" href="../style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 <div class="main">
  
    
@@ -259,13 +259,13 @@ echo "<script>window.open('Allocate.php','_self')</script>";
 </div>
       </section>
     </table>
-    <a href="../index.php">Back</a>
+    <a href="index.php">Back</a>
     </center>
     </center>
 
     </div>
                       
- <?php include '../footer.php'; ?> 
+ <?php include 'footer.php'; ?> 
 
 
  

@@ -1,4 +1,4 @@
-<?php include '../header.php';
+<?php include 'header.php';
 
 $a = $_SESSION['U_id'];?>
 
@@ -7,23 +7,23 @@ $a = $_SESSION['U_id'];?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="../style.css">
+	 <br><br><br><br><br><br><br><br><br><br><title>Home</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 <div class="container">
    
    <body><br><br>
 <center>
-<h2>Report:</h2><br><br><br><br>
+<h2>Student List:</h2><br><br><br><br>
   	<center>
 
 <table border="1" align="center">
 <tr>
- 
-	<th >Lecturer Name</th>
+	<th> No</th>
 	<th>Student Name</th>
 	<th>Student ID</th>
 	<th> Category</th>
-	
+	<th>FYP Title</th>
+	<th>Supervisor</th>
 	
 
 	
@@ -32,7 +32,7 @@ $a = $_SESSION['U_id'];?>
   <?php
    //SQL query
 
-     $query = " SELECT application.L_id, application.L_name, GROUP_CONCAT(DISTINCT application.U_id separator '<br><br>') AS 'U_id', GROUP_CONCAT(DISTINCT student.U_name separator '<br><br>')as 'U_name' , GROUP_CONCAT(application.S_category separator '<br><br>') AS 'S_category' FROM application INNER JOIN student ON application.U_id=student.U_id GROUP BY application.L_id ASC  ;"  or die(mysqli_connect_error());
+     $query = " SELECT student.S_count, student.U_name, student.U_id, student.S_category,  application.A_title, application.L_name FROM student LEFT JOIN application ON student.U_id = application.U_id  ;"  or die(mysqli_connect_error());
     $result = mysqli_query($link, $query);
 
     
@@ -45,10 +45,9 @@ while ( $row = $result -> fetch_assoc()) {
   	
     
         <tr>
-         
           <td>'
                
-           . $row["L_name"].
+           . $row["S_count"].
                 
             '</td>
            
@@ -71,6 +70,19 @@ while ( $row = $result -> fetch_assoc()) {
            . $row["S_category"].
                 
             '</td>
+        
+   
+        
+            <td>'
+               
+           . $row["A_title"].
+                
+            '</td>
+              <td>'
+               
+           . $row["L_name"].
+                
+            '</td>
            
       
 		
@@ -82,11 +94,12 @@ while ( $row = $result -> fetch_assoc()) {
   
 	?>
 </table>
+<a href="studentList.php">Back</a>
 </center>
   </div>
 
-<?php include '../sidebar.php' ;?>
- <?php include '../footer.php'; ?>
+
+ <?php include 'footer.php'; ?>
 </html>
  </head>
 
