@@ -7,6 +7,7 @@
     define("COORDINATOR", "Coordinator");
     define("STUDENT", "Student");
     define("LECTURER", "Lecturer");
+   
     define("UNAUTHORIZED", "<span style='color:red; font-weight:bold'>Sorry, this action is unauthorized. Ask administrator for more details.</span>");
 
     function IsInRole($role) {

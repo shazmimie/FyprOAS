@@ -1,10 +1,6 @@
 <?php include 'constants.php';?>
 <?php include('server.php') ?>
- <style>
-#body {
-  background-image: url('UMP.jpg');
-}
-</style>
+
 
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">

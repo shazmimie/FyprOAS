@@ -1,5 +1,6 @@
 
 <?php
+require 'server.php';
 session_start();
 if (!isset($_SESSION['U_id'])) {
 	$_SESSION['msg'] = "You must log in first";
@@ -9,8 +10,16 @@ if (!isset($_SESSION['U_id'])) {
 if (isset($_GET['logout'])) {
 	session_destroy();
 	unset($_SESSION['U_id']);
+	unset($_SESSION['email']);
+	unset($_SESSION['token']);
 	unset($_SESSION['success']);
 	header("location: login.php");
+
+}
+//verify the user using token
+if ( isset($_GET['password-token'])){
+	$passwordToken=$_GET['password-token'];
+	resetPassword($passwordToken);
 }
 ?>
 <!DOCTYPE html>

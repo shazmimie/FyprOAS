@@ -11,19 +11,12 @@
          <a href="register.php">SignUp</a>
                 <a href="login.php">SignIn</a>
             
-            
-
-            
-               
-
-  
-     
   
   </nav>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registration system PHP and MySQL</title>
+	<title>Password Message</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body><br><br><br><br>
