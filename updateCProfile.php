@@ -39,6 +39,7 @@ $a = $_SESSION['U_id'];?>
   
 $U_name= $row['U_name'];
 $U_id= $row['U_id'];
+$email= $row['email'];
 
 
 ?>
@@ -51,7 +52,11 @@ $U_id= $row['U_id'];
 <td><input type="text" name="U_name" value="<?php echo $U_name;?>"></td>
 </tr>
 <tr>
-<td>Student ID:</td>
+<td>Email:</td>
+<td><input type="text" name="email" value="<?php echo $email;?>"></td>
+</tr>
+<tr>
+<td>Coordinator ID:</td>
 <td><?php echo $U_id;?></td>
 </tr>
 
@@ -68,19 +73,27 @@ if(isset($_POST['update'])){
 
 $id = $_GET['U_id'];
 $U_name = $_POST['U_name'];
+$email = $_POST['email'];
 
 
 
-$update = "update coordinator set U_name='$U_name' where U_id='$id'";
+$update2 = "update coordinator set U_name='$U_name',email='$email' where U_id='$id'";
 
 
-$query2 = mysqli_query($link, $update) or die(mysqli_error($link));
+$query2 = mysqli_query($link, $update2) or die(mysqli_error($link));
 if($query2)
+{
+  $update3 = "update user set U_name='$U_name',email='$email' where U_id='$id'";
+
+
+$query3 = mysqli_query($link, $update3) or die(mysqli_error($link));
+if($query3)
 {
   
 
   echo "<script>alert('Record Update Successfully')</script>";
   echo "<script>window.open('coordinatorProfile.php','_self')</script>";
+}
 }
 else
 {
@@ -99,4 +112,6 @@ else
 
 
 ?>
+</center>
+</center>
 	<?php include 'footer.php';?>

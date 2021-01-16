@@ -72,7 +72,7 @@ function sendPasswordResetLink($userEmail, $token){
           font-size: 1.3em;
         }
         a {
-          background: #592f80;
+          background: #E2E5DE;
           text-decoration: none;
           padding: 8px 15px;
           border-radius: 5px;
@@ -83,9 +83,9 @@ function sendPasswordResetLink($userEmail, $token){
 
     <body>
       <div class="wrapper">
-        <p>Hello There,
+        <p>Hello There,</p><br>
 
-        Please click on the link below to reset your password.</p>
+        <p>Please click on the link below to reset your password.</p>
         <a href = "http://localhost/GitHub/FYPrOAS/index.php?password-token=' . $token . '">Reset Your Password</a>
       </div>
     </body>

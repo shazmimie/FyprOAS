@@ -42,6 +42,14 @@ $a = $_SESSION['U_id'];?>
                 
             '</td>
         </tr>
+        <tr>
+            <td>Email:</td>
+            <td>'
+               
+           . $row["email"].
+                
+            '</td>
+        </tr>
 		<tr>
             <td>Coordinator ID:</td>
             <td>'
@@ -57,7 +65,7 @@ $a = $_SESSION['U_id'];?>
      }
     echo "</table>";
 	?>
-    <a href="../index.php">Back</a>
+    <a href="index.php">Back</a>
 <a href="updateCProfile.php?U_id=<?php echo $a;?>">Edit</a>
  </div>
 	<?php include 'footer.php';?>

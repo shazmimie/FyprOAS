@@ -18,7 +18,7 @@ $a = $_SESSION['U_id'];?>
 
 <table border="1" align="center">
 <tr>
-	<th> No</th>
+	
 	<th>Student Name</th>
 	<th>Student ID</th>
 	<th> Category</th>
@@ -45,11 +45,7 @@ while ( $row = $result -> fetch_assoc()) {
   	
     
         <tr>
-          <td>'
-               
-           . $row["S_count"].
-                
-            '</td>
+          
            
             <td>'
                

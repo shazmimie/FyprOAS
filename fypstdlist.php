@@ -64,9 +64,10 @@ include("function.php");
             <?php
                     }
                 }else{
+                  echo '<center>';
                     echo "No Student Supervised.";
                 }
-            ?><center>
+            ?><br>
              <a href="index.php">Back</a>
           </center>
         </div>
@@ -74,7 +75,7 @@ include("function.php");
       </section>
 
     </main>
-
+<?php include 'footer.php';?>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

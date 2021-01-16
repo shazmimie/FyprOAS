@@ -213,7 +213,7 @@ font-size: 14px;
   
 
 .button3 {
-  background-color: #ef8b56; 
+  background-color: #F86061; 
   color: black; 
   border: 2px solid white;
 }
@@ -222,8 +222,27 @@ font-size: 14px;
   background-color: white;
   color: white;
 }
-  }
   
+ .button2 {
+  background-color: #FF4043; 
+  color: black; 
+  border: 2px solid white;
+}
+
+.button2:hover {
+  background-color: white;
+  color: white;
+} 
+ .button1 {
+  background-color: #FF7F4F; 
+  color: black; 
+  border: 2px solid white;
+}
+
+.button1:hover {
+  background-color: white;
+  color: white;
+} 
     
   a: active {
   background-color: #none;

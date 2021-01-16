@@ -19,9 +19,12 @@ $a = $_SESSION['U_id'];?>
 <h2>Your Profile:</h2><br><br><br><br>
     <center>
 
+      <p><h3><b> Please complete the form below before applying for SV and FYP title.</b></h3></p>
+
 <table border="0" align="center">
 
 <table>
+
    <?php
    //SQL query
 

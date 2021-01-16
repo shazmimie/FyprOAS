@@ -24,6 +24,7 @@ $a = $_SESSION['U_id'];?>
     <th>View</th>
    <th> Lecturer ID</th>
   <th> Lecturer Name</th>
+  <th> Research Group</th>
     <th> PTA1</th>
       <th> PTA2</th>
         <th> FYP1</th>
@@ -56,6 +57,7 @@ $query = "SELECT * FROM lecturer where L_status='Available' ";
 $L_count= $row['L_count'];
 $L_name= $row['L_name'];
 $L_id = $row['L_id'];
+$L_researchgroup = $row['L_researchgroup'];
 
 
 
@@ -74,6 +76,7 @@ $L_id = $row['L_id'];
                       </p>
                      <td><p class="lead text-muted"><?php echo $row['L_id'] ?></p></td>
                      <td><p class="lead text-muted"><?php echo $row['L_name'] ?></p></td>
+                     <td><p class="lead text-muted"><?php echo $row['L_researchgroup'] ?></p></td>
                         <td><p class="lead text-muted"><?php  
     $query = "SELECT S_category,  COUNT(U_id) FROM application where S_category='PTA1' AND L_id='$L_id'";
    

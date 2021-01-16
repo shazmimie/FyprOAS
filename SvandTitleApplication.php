@@ -26,15 +26,16 @@ $resultSet = $mysqli -> query ("SELECT * FROM lecturer where L_status='Available
     <center><h2><b><font > SV and Title Application</font></b></h2></center>
 <link rel="stylesheet" type="text/css" href="style.css">
 
-        <br>
         <br><br><br>
-        <center>
 
- 
+        
+        <center>
+        <p><h3><b> Please complete your profile before applying for SV and FYP title</b></h3></p>
+ <br>
         
       <br><br><br><div id="">
 <table  border='1'>
-                <form  method="post" action="SvandTitleApplication.php" >
+                <form id="SvandTitleApplicationForm" method="post" action="SvandTitleApplication.php" >
             
                 
                     <tr><td>FYP SUPERVISOR  :</td>
@@ -73,37 +74,38 @@ $resultSet = $mysqli -> query ("SELECT * FROM lecturer where L_status='Available
 
                     <tr>
                     <td>TITLE  :</td>
-                    <td><input type="text" id="A_title" name="A_title"></td>
+                      <td><textarea rows="4" cols="100" name="A_title" form="SvandTitleApplicationForm"></textarea></td>
                     </tr>
                     
                     <tr>
                     <td>OBJECTIVE  :</td>
-                    <td><input type="text" id="A_objective"  name="A_objective"></td>
+                    <td><textarea rows="10" cols="100" name="A_objective" form="SvandTitleApplicationForm"></textarea></td>
                     </tr>
                 
                 <tr>
                     <td>PROBLEM STATEMENT  :</td>
-                    <td><input type="text" id="A_problem" name="A_problem"></td>
+                    <td><textarea rows="10" cols="100" name="A_problem" form="SvandTitleApplicationForm"></textarea></td>
+                    
                 </tr>
                 <tr>
                     <td>SCOPE  :</td>
-                    <td><input type="text" id="A_scope" name="A_scope"></td>
+                    <td><textarea rows="10" cols="100" name="A_scope" form="SvandTitleApplicationForm"></textarea></td>
                 </tr>
                 <tr>
                     <td>FIELD  :</td>
-                    <td><input type="text" id="A_field" name="A_field"></td>
+                    <td><textarea rows="10" cols="100" name="A_field" form="SvandTitleApplicationForm"></textarea></td>
                 </tr>
                 <tr>
                     <td>SOFTWARE  :</td>
-                    <td><input type="text" id="A_software" name="A_software"></td>
+                    <td><textarea rows="10" cols="100" name="A_software" form="SvandTitleApplicationForm"></textarea></td>
                 </tr>
                 <tr>
                     <td>TOOLS  :</td>
-                    <td><input type="text" id="A_tools" name="A_tools"></td>
+                    <td><textarea rows="10" cols="100" name="A_tools" form="SvandTitleApplicationForm"></textarea></td>
                 </tr>
                 <tr>
                     <td>TECHNIQUE  :</td>
-                    <td><input type="text" id="A_technique" name="A_technique"></td>
+                    <td><textarea rows="10" cols="100" name="A_technique" form="SvandTitleApplicationForm"></textarea></td>
                 </tr>
                 </table><br>
                  
@@ -158,13 +160,16 @@ $resultSet = $mysqli -> query ("SELECT * FROM lecturer where L_status='Available
               $query = "INSERT INTO requests (U_id,L_id,  A_title, A_objective,A_problem, A_scope, A_field, A_software, A_tools, A_technique, message, date) VALUES ('$a','$L_id', '$title', '$objective','$problem', '$scope', '$field', '$software', '$tools', '$technique', '$message', CURRENT_TIMESTAMP) ";
 
           if (mysqli_query($mysqli, $query)){
+
          
-                echo "<script>alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
+                echo "<script>alert('Your application is now pending for approval. Please wait for confirmation. Thank you.')</script>";
+                  } 
             }else{
               echo "<script>alert('Please complete the form')</script>";
+
                 
          }
-         }   
+         
      }
 
 

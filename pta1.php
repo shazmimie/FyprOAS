@@ -114,7 +114,7 @@ $query3 = "UPDATE application SET S_category='$S_category' WHERE U_id='$id'  ;";
 
 if($result3)
 {
-  echo "Lecturer Status Update Successfully";
+  echo "Student Category Update Successfully";
   echo "<script>window.open('pta1.php','_self')</script>";
 }
 }
@@ -135,7 +135,7 @@ $id = $_GET['U_id'];
 
 
 
-$query = "DELETE FROM student  WHERE U_id='$id'  ;";
+$query = "DELETE  FROM student  WHERE U_id='$id'  ;";
 
 
 $result = $link->query($query)or die(mysqli_error($link));
@@ -143,19 +143,19 @@ $result = $link->query($query)or die(mysqli_error($link));
 if($result)
 {
   
-$query2 = "DELETE FROM user  WHERE U_id='$id'  ;";
+$query2 = "DELETE  FROM user  WHERE U_id='$id'  ;";
   $result2 = $link->query($query2)or die(mysqli_error($link));
 
 if($result2)
 {
     
-$query3 = "DELETE FROM application  WHERE U_id='$id'  ;";
+$query3 = "DELETE  FROM application  WHERE U_id='$id'  ;";
   $result3 = $link->query($query3)or die(mysqli_error($link));
 
 if($result3)
 {
-  echo "Lecturer Status Update Successfully";
-  echo "<script>window.open('fyp2.php','_self')</script>";
+  echo "Student deleted Successfully";
+  echo "<script>window.open('fyp1.php','_self')</script>";
 }
 }
 }

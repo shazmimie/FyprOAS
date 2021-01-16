@@ -25,7 +25,7 @@ $a = $_SESSION['U_id'];?>
   <?php
  
    //SQL query
-    $query = " SELECT user.U_name, user.U_id, user.S_program,user.S_category, user.S_pa, application.L_name, application.A_title FROM user LEFT JOIN application ON user.U_id = application.U_id WHERE user.U_id= '$a' ;"  or die(mysqli_connect_error());
+    $query = " SELECT user.U_name, user.U_id,user.email, user.S_program,user.S_category, user.S_pa, application.L_name, application.A_title FROM user LEFT JOIN application ON user.U_id = application.U_id WHERE user.U_id= '$a' ;"  or die(mysqli_connect_error());
     $result = mysqli_query($link, $query);
 
 
@@ -52,6 +52,14 @@ $a = $_SESSION['U_id'];?>
             <td>'
                 
            . $row["U_id"].
+                
+            '</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+            <td>'
+                
+           . $row["email"].
                 
             '</td>
         </tr>

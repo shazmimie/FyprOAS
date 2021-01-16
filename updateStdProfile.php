@@ -27,7 +27,7 @@ $a = $_SESSION['U_id'];?>
   $link = mysqli_connect("localhost","root","","fyp");
   
 
-     $query = " SELECT user.U_name, user.U_id, user.S_program, user.S_category, user.S_pa, application.L_name, application.A_title FROM user LEFT JOIN application ON user.U_id = application.U_id WHERE user.U_id= '$a' ;"  or die(mysqli_connect_error());
+     $query = " SELECT user.U_name, user.U_id,user.email, user.S_program, user.S_category, user.S_pa, application.L_name, application.A_title FROM user LEFT JOIN application ON user.U_id = application.U_id WHERE user.U_id= '$a' ;"  or die(mysqli_connect_error());
   //$query = " SELECT * FROM user WHERE user.U_id= '$a' ;"  or die(mysqli_connect_error());
     $result = mysqli_query($link, $query);
 
@@ -40,6 +40,7 @@ $a = $_SESSION['U_id'];?>
   
 $U_name= $row['U_name'];
 $U_id= $row['U_id'];
+$email= $row['email'];
 $S_program = $row['S_program'];
 $S_category = $row['S_category'];
 $S_pa = $row['S_pa'];
@@ -58,6 +59,10 @@ $A_title = $row['A_title'];
 <tr>
 <td>Student ID:</td>
 <td><?php echo $U_id;?></td>
+</tr>
+<tr>
+<td>Email:</td>
+<td><?php echo $email;?></td>
 </tr>
 <tr><td>Program:</td>
   <td><select name="S_program"><option value="SOFTWARE"
@@ -145,6 +150,7 @@ if(isset($_POST['update'])){
 
 $id = $_GET['U_id'];
 $U_name = $_POST['U_name'];
+$email = $_POST['email'];
 $S_program = $_POST['S_program'];
 $S_category = $_POST['S_category'];
 $S_pa = $_POST['S_pa'];
@@ -188,4 +194,6 @@ else
 
 
 ?>
+</center>
+</center>
 	<?php include 'footer.php';?>

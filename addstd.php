@@ -59,7 +59,7 @@ if($result4)
         $result5 = mysqli_query($link, $query5) or die(mysqli_error($link));
 if($result5){
 echo "Accepted.";
- header('location: allo.php');
+ //header('location: addstd.php');
 
          }
     }
@@ -91,4 +91,4 @@ echo "Accepted.";
                
           ?>
 <br/><br/>
-<a href="dashboard.php">Back</a>
+<a href="allo.php">Back</a>

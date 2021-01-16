@@ -29,7 +29,7 @@
    
    <body><br><br>
 <center>
- <br><br><br><br><br><br><br><h2>Allocation:</h2><br><br><br><br>
+ <br><br><br><br><br><br><br><h2>Student-Lecturer Allocation:</h2><br><br><br><br>
     <center>
       <?php
 $link = NEW MySQLi ('localhost','root','','fyp');

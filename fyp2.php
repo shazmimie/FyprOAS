@@ -114,7 +114,7 @@ $query3 = "UPDATE application SET S_category='$S_category' WHERE U_id='$id'  ;";
 
 if($result3)
 {
-  echo "Lecturer Status Update Successfully";
+  echo "Student category Update Successfully";
   echo "<script>window.open('fyp2.php','_self')</script>";
 }
 }
@@ -155,7 +155,7 @@ $query3 = "DELETE FROM application  WHERE U_id='$id'  ;";
 
 if($result3)
 {
-  echo "Lecturer Status Update Successfully";
+  echo "Student deleted Successfully";
   echo "<script>window.open('fyp2.php','_self')</script>";
 }
 }

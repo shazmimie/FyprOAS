@@ -83,8 +83,8 @@
                 <a formaction="report.php"><a href="report.php">Report</a>
                 <a formaction="Capprove.php"><a href="Capprove.php">Student Approval</a>
                 <a formaction="allocation.php"><a href="allocation.php">Student-Lecturer Allocation</a>
-                <a formaction="lecturerList.php"><a href="lecturerList.php">Lecturer List</a>
-                <a formaction="studentList.php"><a href="studentList.php">Student List</a>
+                <a formaction="lecturerList.php"><a href="lecturerList.php">Manage Lecturer</a>
+                <a formaction="studentList.php"><a href="studentList.php">Manage Student</a>
                     <a formaction="logout.php"><a href="logout.php">Logout</a>
   
      

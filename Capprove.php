@@ -30,8 +30,8 @@
       <section class="jumbotron text-center">
         <div class="container">
 <center><br><br>
-  <h2>Student Approval</h2><br><br><br><br>
-          <table border="1" align="center">
+  <br><br><br><br><br><br><br><br><br><br><h2>Student Approval</h2><br><br><br><br>
+<table border="1" align="center">
 <tr>
   
   <th><label for ="L_id">Lecturer ID</label>
@@ -116,7 +116,7 @@
       </section>
 
     </main>
-
+<?php include 'footer.php';?>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

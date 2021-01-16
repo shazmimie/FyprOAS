@@ -1,5 +1,6 @@
 <?php 
 include 'selectDB.php';
+
 include 'sendEmails.php';
 	session_start();
 
@@ -7,8 +8,14 @@ include 'sendEmails.php';
 	$U_id = "";
 	$role    = "";
 	$email    = "";
+	$password_1 = "";
+	$password_1= strlen($password_1);
 	$errors = array(); 
 	$_SESSION['success'] = "";
+	//$uppercase = preg_match('@[A-Z]@', $password_1);
+    //$lowercase = preg_match('@[a-z]@', $password_1);
+    //$number    = preg_match('@[0-9]@', $password_1);
+    //$specialChars = preg_match('@[^\w]@', $password_1);
 
 	// REGISTER USER
 	if (isset($_POST['reg_user'])) {
@@ -26,6 +33,8 @@ include 'sendEmails.php';
 		if (empty($email)) { array_push($errors, "Email is required"); }
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)){ array_push($errors, "Email address is invalid"); }
 		if (empty($email)) { array_push($errors, "Email is required"); }
+		if( strlen($password_1) < 8) {array_push($errors, "Password should be at least 8 characters in length"); }
+	
 		if (empty($password_1)) { array_push($errors, "Password is required"); }
 		if (empty($role)) { array_push($errors, "Role is required"); }
 		
@@ -53,9 +62,10 @@ $userCount=$result->num_rows;
 					  
 $result = mysqli_query($link, $query);
 
-			if (mysqli_query($link, $query))
-			 
-			 	$role = $resul['role'];
+			//if (mysqli_query($link, $query))
+if ($result == 1) {
+			 //$row = mysqli_fetch_assoc($result);
+			 	//$role = $resul['role'];
 				$_SESSION['U_id'] = $U_id;
 				$_SESSION['email'] = $email;
 				$_SESSION['token'] = $token;
@@ -63,16 +73,18 @@ $result = mysqli_query($link, $query);
 				//$_SESSION['success'] = "You are now logged in";
 				//header('location: updateStdProfile.php');
 
-				$sql="SELECT * FROM user WHERE U_id='$U_id' and U_password='$U_password'";
+				$sql="SELECT * FROM user WHERE U_id='$U_id' and U_password='$U_password' and email='$email'";
 $results = mysqli_query($link, $sql);
-$resul=mysqli_query($sql);
+//$resul=mysqli_query($sql);
 if($role ==STUDENT){
  header('location: RegStd.php');
 }
 
 	else if ($role ==LECTURER){
-  header('location: login.php');
-			} else {
+  header('location: index.php');
+			} 
+
+		}else {
 				array_push($errors, 'Registration Error: ' . mysqli_error($link));
 			}
 		}
@@ -144,7 +156,7 @@ if($role ==STUDENT){
 if(isset($_POST['reset_password'])){
 	$password_1 = mysqli_real_escape_string($link, $_POST['password_1']);
 	$password_2 = mysqli_real_escape_string($link, $_POST['password_2']);
-
+if( strlen($password_1) < 8) {array_push($errors, "Password should be at least 8 characters in length"); }
 	if (empty($password_1)) { array_push($errors, "Password is required"); }
 
 if ($password_1 != $password_2) {
@@ -152,7 +164,7 @@ array_push($errors, "The two passwords do not match");
 }
 
 $U_password = md5($password_1);
-$U_id=$_SESSION['U_id'];
+//$U_id=$_SESSION['U_id'];
 $email=$_SESSION['email'];
 
 if (count($errors) == 0) {
